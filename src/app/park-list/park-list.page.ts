@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class ParkListPage implements OnInit {
 
   parks: Array<Object> = [];
+  searchQuery: string = '';
 
   constructor(public navCtrl: NavController, public parkData: ParkData, public router: Router) {
     parkData.getParks().then(theResult => {
@@ -23,8 +24,47 @@ export class ParkListPage implements OnInit {
    goParkDetails(theParkData){
      let url = './tabs/details/' + theParkData.id;
      this.router.navigate([url]); 
+     console.log("This is the park data...");
      console.log(theParkData);
    }
+
+   getParks(event)
+   {
+     this.parkData.getParks().then(theResult => {
+       this.parks = theResult;
+     })
+     let queryString = event.target.value;
+     if(queryString != undefined)
+     {
+       if(queryString.trim() == '')
+       {
+         return;
+       }
+       this.parkData.getFilteredParks(queryString).then(theResult => {
+         this.parks = theResult;
+       })
+     }
+   }
+
+   resetList(event)
+   {
+     this.parkData.getParks().then(theResult => {
+       this.parks = theResult;
+     })
+   }
+
+   customHeaderFn(record, recordIndex, records){
+    if(recordIndex > 0)
+    {
+        if(record.name.charAt(0) !== records[recordIndex-1].name.charAt(0)){
+            return record.name.charAt(0);
+        } else {
+            return null;
+        }
+    } else {
+        return record.name.charAt(0);
+    }
+  }
 
   ngOnInit() {
   }
