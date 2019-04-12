@@ -17,12 +17,12 @@ export class ParkListPage implements OnInit {
 
   constructor(public navCtrl: NavController, public parkData: ParkData, public router: Router) {
     parkData.getParks().then(theResult => {
-      this.parks = theResult;
+      this.parks = theResult;;
     })
    }
 
    goParkDetails(theParkData){
-     let url = './tabs/details/' + theParkData.id;
+     let url = './tabs/details/' + theParkData.vendor_id;
      this.router.navigate([url]); 
      console.log("This is the park data...");
      console.log(theParkData);
@@ -56,13 +56,13 @@ export class ParkListPage implements OnInit {
    customHeaderFn(record, recordIndex, records){
     if(recordIndex > 0)
     {
-        if(record.name.charAt(0) !== records[recordIndex-1].name.charAt(0)){
-            return record.name.charAt(0);
+        if(record.vendor_name.charAt(0) !== records[recordIndex-1].vendor_name.charAt(0)){
+            return record.vendor_name.charAt(0);
         } else {
             return null;
         }
     } else {
-        return record.name.charAt(0);
+        return record.vendor_name.charAt(0);
     }
   }
 

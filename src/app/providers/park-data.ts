@@ -1,12 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-
-import { Component } from '@angular/core';
-import { NavController, NavParams } from '@ionic/angular';
-
-
-
+import { Type } from '@angular/compiler/src/core';
 
 @Injectable()
 export class ParkData {
@@ -19,15 +14,18 @@ export class ParkData {
             return Promise.resolve(this.data);
         }
         return new Promise(resolve => {
-            this.http.get('assets/data/data.json')
+            this.http.get('http://bonsai.lcsc.edu/dbjones2518/reptiles/api.php/records/vendors?order=vendor_name')
             .map(res => res.json())
             .subscribe(data => {
-                this.data = data;
+                this.data = data.records;
+                //I should add an alphabatizer here...
                 resolve(this.data);
             });
         });
-    }
+    } 
+    
 
+    
     getParks()
     {
         return this.load().then(data => {
@@ -39,7 +37,7 @@ export class ParkData {
     {
         for(var i = 0; i < this.data.length; i++)
         {
-            if(this.data[i].id == id)
+            if(this.data[i].vendor_id == id)
             {
                 return this.data[i];
             }
@@ -55,7 +53,7 @@ export class ParkData {
 
             for (let thePark of Parks)
             {
-                if(thePark.name.toLowerCase().indexOf(queryString.toLowerCase())> -1)
+                if(thePark.vendor_name.toLowerCase().indexOf(queryString.toLowerCase())> -1)
                 {
                     theFilteredParks.push(thePark);
                 }

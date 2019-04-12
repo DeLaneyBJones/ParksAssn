@@ -29,7 +29,7 @@ const routes: Routes = [
         path: 'details/:id',
         children: [{
           path: '',
-          loadChildren: '../park-details/park-details.module#ParkDetailsPageModule'
+          loadChildren: '../reptile-details/reptile-details.module#ReptileDetailsPageModule'
         }]
       }
     ]

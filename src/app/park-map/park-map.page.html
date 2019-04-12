@@ -1,9 +1,47 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>parkMap</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Settings</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
 
+<ion-content padding>
+  <img src = "../../assets/img/headers/acadia.jpg">
+  <ion-card>
+    <ion-card-header>
+      Reptile Inforamtion
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item (click)="this.reptilesAdd = !this.reptilesAdd">
+        <h2 (click)="presentAddReptileModal()">Add a Reptile</h2>
+      </ion-item>
+      <ion-item *ngIf="reptilesAdd == !reptilesAdd">
+        <ul>
+          <li><h2>Add a Reptile</h2></li>
+          <li><h2>Remove a Reptile</h2></li>
+          <li><h2>Update a Reptile</h2></li>
+        </ul>
+      </ion-item>
+      <ion-item (click)="this.reptilesRemove = !this.reptilesRemove">
+        <h2 (click)="presentRemoveReptileModal()">Remove a Reptile</h2>
+      </ion-item>
+      <ion-item *ngIf="reptilesRemove == !reptilesRemove">
+        <ul>
+          <li><h2>Add a Reptile</h2></li>
+          <li><h2>Remove a Reptile</h2></li>
+          <li><h2>Update a Reptile</h2></li>
+        </ul>
+      </ion-item>
+      <ion-item (click)="this.reptilesUpdate = !this.reptilesUpdate">
+        <h2 (click)="presentUpdateReptileModal()">Update a Reptile</h2>
+      </ion-item>
+      <ion-item *ngIf="reptilesUpdate == !reptilesUpdate">
+        <ul>
+          <li><h2>Add a Reptile</h2></li>
+          <li><h2>Remove a Reptile</h2></li>
+          <li><h2>Update a Reptile</h2></li>
+        </ul>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

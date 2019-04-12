@@ -5,12 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ParkDetailsPage } from './park-details.page';
+import { UpdateReptileModalPage } from './update-reptile-modal.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ParkDetailsPage
+    component: UpdateReptileModalPage
   }
 ];
 
@@ -21,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ParkDetailsPage]
+  declarations: [UpdateReptileModalPage]
 })
-export class ParkDetailsPageModule {}
+export class UpdateReptileModalPageModule {}

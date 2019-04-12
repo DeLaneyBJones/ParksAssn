@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="tabs/parks"></ion-back-button>
+    </ion-buttons>    
+    <ion-title>{{reptileInfo.vendor_name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <img src = "../../assets/img/headers/acadia.jpg">
+  <h1 padding >{{reptileInfo.vender_name}}</h1>
+  <ion-card>
+    <ion-card-header>
+      {{reptileInfo.vendor_name}}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item (click)="this.basicInfo = !this.basicInfo">
+        <h2>Basic Information</h2>
+      </ion-item>
+      <ion-item *ngIf="basicInfo">
+        <ul>
+          <li>ID: {{reptileInfo.vendor_id}}</li>
+          <li>Name: {{reptileInfo.vender_name}}</li>
+          <li>Species: </li>
+          <li>Morph:</li>
+          <li>DoB:</li>
+          <li>Food:</li>
+          <li>Handling:</li>
+          <li>Acquired:</li>
+          <li>ScaleVentral:</li>
+          <li>ScaleMid:</li>
+          <li>ScaleSubCaudal:</li>
+          <li>Saddles:</li>
+          <li>ScaleCount5:</li>
+        </ul>
+      </ion-item>
+      <ion-item (click)="this.observations = !this.observations">
+        <h2>Observations</h2>
+      </ion-item>
+      <ion-item *ngIf="observations">
+        <ul *ngIf="observations">
+          <li>Name: {{reptileInfo.vendor_address1}}</li>
+          <li>Date: {{reptileInfo.vendor_address2}}</li>
+          <li>Observation: </li>
+        </ul>
+      </ion-item>
+      <ion-item (click)="this.feed = !this.feed">
+        <h2>Feed</h2>
+      </ion-item>
+      <ion-item *ngIf="feed">
+        <ul>
+          <li>Name: {{reptileInfo.vendor_city}}</li>
+          <li>Food Size: {{reptileInfo.vendor_state}}</li>
+          <li>Frequency: {{reptileInfo.vendor_zip_code}}</li>
+          <li>Date: </li>
+          <li>Ate: </li>
+        </ul>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

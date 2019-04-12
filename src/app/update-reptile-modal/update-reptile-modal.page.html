@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Update a Reptile</ion-title>
+      <ion-button slot="end" (click)="dismiss()" color='secondary'>close</ion-button>
+    </ion-toolbar>
+    <ion-toolbar color='primary'>
+      <ion-searchbar (ionInput)="getParks($event)" (ionClear)="resetList($event)">
+      </ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list>
+      <ion-virtual-scroll [items]="parks" [headerFn]="customHeaderFn">
+        <ion-item-divider *virtualHeader='let header'>
+          {{header}}
+        </ion-item-divider>
+        <ion-item *virtualItem="let park" (click)="goParkDetails(park)" detail-push>
+          <ion-thumbnail slot="start">
+            <ion-img src="../../assets/img/thumbs/acadia.jpg"></ion-img>
+          </ion-thumbnail>
+          
+          <ul class="clear">
+            <li class="clear"><h2>{{park.vendor_name}}</h2></li>
+            <li class="clear"><p>{{park.vendor_id}}</p></li>
+          </ul>
+            
+            
+        </ion-item>
+        </ion-virtual-scroll>
+    </ion-list>
+  </ion-content>

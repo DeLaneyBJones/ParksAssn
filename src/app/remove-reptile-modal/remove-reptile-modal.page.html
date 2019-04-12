@@ -1,20 +1,22 @@
 <ion-header>
-  <ion-toolbar color='primary'>
-    <ion-title>Reptiles</ion-title>
-  </ion-toolbar>
-  <ion-toolbar color='primary'>
-    <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="getParks($event)" (ionClear)="resetList($event)">
-    </ion-searchbar>
+  <ion-toolbar color="primary">
+    <ion-title>Remove a Reptile</ion-title>
+    <ion-button slot="end" (click)="dismiss()" color='secondary'>close</ion-button>
   </ion-toolbar>
 </ion-header>
-
+  
 <ion-content>
+  <form>
+    <h2>Please select the reptile you wish to remove</h2>
+    <ion-searchbar (ionInput)="getParks($event)" (ionClear)="resetList($event)"></ion-searchbar>
+  </form>
+  
   <ion-list>
     <ion-virtual-scroll [items]="parks" [headerFn]="customHeaderFn">
       <ion-item-divider *virtualHeader='let header'>
         {{header}}
       </ion-item-divider>
-      <ion-item *virtualItem="let park" (click)="goParkDetails(park)" detail-push>
+      <ion-item *virtualItem="let park" (click)="selectedReptile($event)" detail-push>
         <ion-thumbnail slot="start">
           <ion-img src="../../assets/img/thumbs/acadia.jpg"></ion-img>
         </ion-thumbnail>
@@ -22,11 +24,8 @@
         <ul class="clear">
           <li class="clear"><h2>{{park.vendor_name}}</h2></li>
           <li class="clear"><p>{{park.vendor_id}}</p></li>
-        </ul>
-          
-          
+        </ul> 
       </ion-item>
       </ion-virtual-scroll>
   </ion-list>
-
 </ion-content>

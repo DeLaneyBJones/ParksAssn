@@ -5,7 +5,7 @@
 
 :root {
   /** primary **/
-  --ion-color-primary: #0c6d4d;
+  --ion-color-primary: #417145;
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
@@ -13,7 +13,7 @@
   --ion-color-primary-tint: #0aa023;
 
   /** secondary **/
-  --ion-color-secondary: #0cd1e8;
+  --ion-color-secondary: #82b786;
   --ion-color-secondary-rgb: 12, 209, 232;
   --ion-color-secondary-contrast: #ffffff;
   --ion-color-secondary-contrast-rgb: 255, 255, 255;
@@ -80,9 +80,9 @@
 $item-md-detail-push-show: true;
 
 ion-content {background-color: #f4efdd;}
-ion-card-header {background-color: #ab903c; color: #fff; font-weight: bold;}
+ion-card-header {background-color: #82b786; color: #fff; font-weight: bold;}
 ion-card-content {margin-top: 1em;}
-ion-item-divider.item{background-color: #ab903c; color: #fff; font-size: 1.8rem; font-weight: bold !important;}
+ion-item-divider.item{background-color: #82b786; color: #fff; font-size: 1.8rem; font-weight: bold !important;}
 .item{background-color: #f4efdd;}
 .toolbar-background {background-color: #706d61;}
 .searchbar-input-container {background-color: #fff;}
